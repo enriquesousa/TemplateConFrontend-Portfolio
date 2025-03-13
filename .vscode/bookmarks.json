@@ -1,0 +1,309 @@
+{
+	"files": [
+		{
+			"path": "bootstrap/app.php",
+			"bookmarks": [
+				{
+					"line": 20,
+					"column": 8,
+					"label": "dashboard middleware alias"
+				},
+				{
+					"line": 23,
+					"column": 12,
+					"label": "check role registrar middleware"
+				},
+				{
+					"line": 24,
+					"column": 59,
+					"label": "traduccion Registrar Localization Middleware"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Controllers/Auth/AuthenticatedSessionController.php",
+			"bookmarks": [
+				{
+					"line": 20,
+					"column": 8,
+					"label": "dashboard check si admin es login"
+				},
+				{
+					"line": 34,
+					"column": 8,
+					"label": "user ya hizo el login correctamente"
+				},
+				{
+					"line": 36,
+					"column": 8,
+					"label": "user dashboard redirect a user dashboard si role es user"
+				},
+				{
+					"line": 38,
+					"column": 8,
+					"label": "instructor dashboard redirect a instructor dashboard si role es instructor"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Middleware/RedirectIfAuthenticated.php",
+			"bookmarks": [
+				{
+					"line": 30,
+					"column": 48,
+					"label": "dashboard middleware redirigir al user al dashboard correcto"
+				},
+				{
+					"line": 55,
+					"column": 12,
+					"label": "dashboard middleware admin.dashboard si guard es admin"
+				},
+				{
+					"line": 56,
+					"column": 12,
+					"label": "dashboard middleware dashboard si guard es web"
+				}
+			]
+		},
+		{
+			"path": ".env",
+			"bookmarks": [
+				{
+					"line": 61,
+					"column": 16,
+					"label": "mailhog"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Controllers/Admin/Auth/AuthenticatedSessionController.php",
+			"bookmarks": [
+				{
+					"line": 19,
+					"column": 8,
+					"label": "admin login call view"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Controllers/Admin/Auth/PasswordResetLinkController.php",
+			"bookmarks": [
+				{
+					"line": 18,
+					"column": 8,
+					"label": "dashboard admin passwrod reset view"
+				},
+				{
+					"line": 35,
+					"column": 46,
+					"label": "admin password reset link asignar broker para que busque en tabla admis"
+				},
+				{
+					"line": 37,
+					"column": 12,
+					"label": "admin password reset link funtion to send correct link"
+				}
+			]
+		},
+		{
+			"path": "resources/views/admin/auth/forgot-password.blade.php",
+			"bookmarks": [
+				{
+					"line": 50,
+					"column": 0,
+					"label": "admin enter forgot password email"
+				}
+			]
+		},
+		{
+			"path": "resources/views/admin/auth/login.blade.php",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 20,
+					"label": "admin login view"
+				},
+				{
+					"line": 215,
+					"column": 108,
+					"label": "admin login forgot password"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Controllers/Admin/Auth/NewPasswordController.php",
+			"bookmarks": [
+				{
+					"line": 22,
+					"column": 47,
+					"label": "admin new password reset"
+				},
+				{
+					"line": 41,
+					"column": 8,
+					"label": "admin aqui tambien tenemos que usar el admins broker"
+				}
+			]
+		},
+		{
+			"path": "resources/views/admin/auth/reset-password.blade.php",
+			"bookmarks": [
+				{
+					"line": 139,
+					"column": 4,
+					"label": "admin password store"
+				}
+			]
+		},
+		{
+			"path": "database/migrations/0001_01_01_000000_create_users_table.php",
+			"bookmarks": [
+				{
+					"line": 22,
+					"column": 12,
+					"label": "check role campo tabla"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Middleware/CheckRoleMiddleware.php",
+			"bookmarks": [
+				{
+					"line": 15,
+					"column": 4,
+					"label": "check role middleware aceptar nuevo parametro role"
+				}
+			]
+		},
+		{
+			"path": "routes/web.php",
+			"bookmarks": [
+				{
+					"line": 14,
+					"column": 0,
+					"label": "traduccion agregar middleware a home page"
+				},
+				{
+					"line": 17,
+					"column": 0,
+					"label": "traduccion Localization Controller set language"
+				},
+				{
+					"line": 22,
+					"column": 0,
+					"label": "middleware pasar parametro a middleware"
+				}
+			]
+		},
+		{
+			"path": "database/seeders/UserSeeder.php",
+			"bookmarks": [
+				{
+					"line": 15,
+					"column": 8,
+					"label": "check role agregar dos users a table con UserSeeder"
+				}
+			]
+		},
+		{
+			"path": "resources/views/layouts/navigation.blade.php",
+			"bookmarks": [
+				{
+					"line": 14,
+					"column": 0,
+					"label": "user dashboard navigation"
+				}
+			]
+		},
+		{
+			"path": "resources/views/welcome.blade.php",
+			"bookmarks": [
+				{
+					"line": 12,
+					"column": 8,
+					"label": "bootstrap 5 css"
+				},
+				{
+					"line": 33,
+					"column": 24,
+					"label": "welcome display boton user o instructor dashboard button"
+				},
+				{
+					"line": 63,
+					"column": 24,
+					"label": "bootstrap 5 dropdown"
+				},
+				{
+					"line": 72,
+					"column": 32,
+					"label": "traduccion url dropdown welcome page "
+				},
+				{
+					"line": 87,
+					"column": 40,
+					"label": "bootstrap 5 dropdown"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Middleware/LocalizationMiddleware.php",
+			"bookmarks": [
+				{
+					"line": 15,
+					"column": 4,
+					"label": "traduccion Localization Middleware"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Controllers/LocalizationController.php",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 4,
+					"label": "traduccion controller localization controller setLanguage"
+				},
+				{
+					"line": 27,
+					"column": 8,
+					"label": "traduccion grabar session variable locale"
+				}
+			]
+		},
+		{
+			"path": "resources/views/admin/layouts/master.blade.php",
+			"bookmarks": [
+				{
+					"line": 41,
+					"column": 8,
+					"label": "bootstrap icons"
+				}
+			]
+		},
+		{
+			"path": "resources/views/welcome.blade.php",
+			"bookmarks": [
+				{
+					"line": 15,
+					"column": 34,
+					"label": "Bootstrap Icons fonts"
+				},
+				{
+					"line": 95,
+					"column": 40,
+					"label": "if locale check mark"
+				}
+			]
+		},
+		{
+			"path": "routes/web.php",
+			"bookmarks": [
+				{
+					"line": 14,
+					"column": 0,
+					"label": "home page"
+				}
+			]
+		}
+	]
+}

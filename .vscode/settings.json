@@ -1,0 +1,61 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#ffae91",
+        "activityBar.background": "#ffae91",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#008022",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#15202b99",
+        "sash.hoverBorder": "#ffae91",
+        "statusBar.background": "#ff885e",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#ff622b",
+        "statusBarItem.remoteBackground": "#ff885e",
+        "statusBarItem.remoteForeground": "#15202b",
+        "titleBar.activeBackground": "#ff885e",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#ff885e99",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+
+    // Material Icon - Asociar icon con nombre de folder
+    // La lista de iconos se encuentra en: https://pictogrammers.com/library/mdi/
+    "material-icon-theme.folders.customClones": [
+        {
+            "name": "tabler",
+            "base": "server",
+            "color": "light-green-500",
+            "lightColor": "light-green-700",
+            "folderNames": ["backend-tabler"],
+            // "rootFolderNames": ["templates"]
+        },
+    ],
+
+    // Editor Color Theme
+    "workbench.colorTheme": "Monokai",
+    "git.enableSmartCommit": true,
+    "window.zoomLevel": 1,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 15,
+    "editor.fontLigatures": true,
+
+    // Peacock
+    "peacock.color": "#ff885e",
+
+    // CSpell
+    "cSpell.language": "en,es",
+
+    // Bookmarks Que se guarden en este proyecto
+    "bookmarks.saveBookmarksInProject": true,
+ 
+    // Para Tener listos los Easy Snippets
+    // Solo copiar el archivo de otro proyecto: .vscode/snippets.code-snippets
+
+    // Laravel Blade Formatter
+    "bladeFormatter.format.wrapLineLength": 500,
+    "bladeFormatter.format.wrapAttributes": "auto",
+    "bladeFormatter.format.useTabs": false,
+    "bladeFormatter.format.wrapAttributesMinAttrs": 10,
+
+}
