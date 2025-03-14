@@ -18,116 +18,89 @@
 <div class="page-body">
     <div class="container-xl">
 
-        {{-- Editar Perfil - Avatar, Nombre y Correo Electrónico --}}
+        {{-- Card con Tabs --}}
         <div class="card">
-            <div class="row g-0">
-                <div class="col-12 col-md-12 d-flex flex-column">
-                    <div class="card-body">
-                        <h2 class="mb-4">{{ __('My Account') }}</h2>
-                        <h3 class="card-title">{{ __('Profile Details') }}</h3>
 
-                        <div class="row align-items-center">
+            {{-- Tabs Encabezados --}}
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs" role="tablist">
 
-                            <div class="col-auto"><span class="avatar avatar-xl"
-                                    style="background-image: url(./static/avatars/000m.jpg)"></span>
-                            </div>
+                    {{-- Nombre y Correo Electrónico --}}
+                    <li class="nav-item" role="presentation">
+                        <a href="#tabs-nombre" class="nav-link active" data-bs-toggle="tab" aria-selected="true" role="tab" style="">
+                            <i class="bi bi-person"></i>&nbsp;
+                            {{ __('Name and Email') }}
+                        </a>
+                    </li>
 
-                            <div class="col-auto">
-                                <a href="#" class="btn">
-                                    {{ __('Change avatar') }}
-                                </a>
-                            </div>
+                    {{-- Contraseña --}}
+                    <li class="nav-item" role="presentation">
+                        <a href="#tabs-contraseña" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                            <i class="bi bi-key"></i>&nbsp;
+                            {{ __('Password') }}
+                        </a>
+                    </li>
 
-                            <div class="col-auto">
-                                <a href="#" class="btn btn-ghost-danger">
-                                    {{ __('Delete avatar') }}
-                                </a>
-                            </div>
+                    {{-- Avatar --}}
+                    <li class="nav-item" role="presentation">
+                        <a href="#tabs-avatar" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                            <i class="bi bi-person-circle"></i>&nbsp;
+                            {{ __('Avatar') }}
+                        </a>
+                    </li>
 
-                            <div class="col-auto">
-                                <!-- Lenguaje - b5 dropdown -->
-                                <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{ __('Prefer language') }}
-                                    </a>
-                                    
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        
-                                        {{-- Ingles --}}
-                                        <li>
-                                            <a class="dropdown-item" href="{{ url('locale/en') }}">
-                                                {{ __('English') }}
-                                                @if (App::getLocale() == 'en')
-                                                    <i class="bi bi-check2"></i>
-                                                @endif
-                                            </a>
-                                        </li>
-    
-                                        {{-- Español --}}
-                                        <li>
-                                            <a class="dropdown-item" href="{{ url('locale/es') }}">
-                                                {{ __('Spanish') }}
-                                                @if (App::getLocale() == 'es')
-                                                    <i class="bi bi-check2"></i>
-                                                @endif
-                                            </a>
-                                        </li>
-    
-                                    </ul>
-                                </div>
-                            </div>
+                    {{-- Lenguaje --}}
+                    <li class="nav-item" role="presentation">
+                        <a href="#tabs-lenguaje" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                            <i class="bi bi-translate"></i>&nbsp;
+                            {{ __('Language') }}
+                        </a>
+                    </li>
 
-                        </div>
+                </ul>
+            </div>
 
-                        {{-- Nombre y Rol --}}
-                        <h3 class="card-title mt-4">{{ __('Profile Information') }}</h3>
+            {{-- Tabs Contenido --}}
+            <div class="card-body">
+                <div class="tab-content">
+
+                    {{-- Nombre y Correo Electrónico --}}
+                    <div class="tab-pane active show" id="tabs-nombre" role="tabpanel">
+
+                        {{-- Editar nombre y correo --}}
+                        <h3 class="card-title mt-4">{{ __('Name and Email') }}</h3>
+                        <p class="card-subtitle">{{ __('Your email address can be used to reset your password and also to receive messages from this application.') }}</p>
                         <div class="row g-3">
 
                             {{-- Nombre --}}
                             <div class="col-md">
                                 <div class="form-label">{{ __('Name') }}</div>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" placeholder="{{ __('Complete Name') }}">
                             </div>
 
-                            {{-- Rol --}}
+                            {{-- Correo Electrónico --}}
                             <div class="col-md">
-                                <div class="form-label">{{ __('Role') }}</div>
-                                <input type="text" class="form-control" value="admin" readonly>
+                                <div class="form-label">{{ __('Email') }}</div>
+                                <input type="text" class="form-control" placeholder="test@example.com" value="">
                             </div>
                         </div>
 
-                        {{-- Correo Electrónico --}}
-                        <h3 class="card-title mt-4">{{ __('Email') }}</h3>
-                        <p class="card-subtitle">{{ __('Your email address can be used to reset your password and also to receive messages from this application.') }}</p>
-                        <div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="{{ __('Email') }}" value="">
-                                </div>
+                        <br>
+
+                        {{-- Botón Guardar Cambios --}}
+                        <div class="card-footer bg-transparent mt-auto">
+                            <div class="btn-list justify-content-end">
+                                <a href="#" class="btn btn-primary">
+                                    {{ __('Save Changes') }}
+                                </a>
                             </div>
                         </div>
                         
                     </div>
 
-                    <div class="card-footer bg-transparent mt-auto">
-                        <div class="btn-list justify-content-end">
-                            <a href="#" class="btn btn-primary">
-                                {{ __('Save Changes') }}
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        {{-- Editar Admin Password --}}
-        <div class="card mt-4">
-            <div class="row g-0">
-                <div class="col-12 col-md-12 d-flex flex-column">
-                    <div class="card-body">
-                        <h2 class="mb-4">{{ __('My Password') }}</h2>
-
+                    {{-- Contraseña --}}
+                    <div class="tab-pane" id="tabs-contraseña" role="tabpanel">
+                        
                         <h3 class="card-title mt-4">{{ __('Change Password') }}</h3>
                         <p class="card-subtitle">{{ __('To change your administrator password, you first need to enter your current password to make the change.') }}</p>
 
@@ -172,16 +145,116 @@
 
                         </div>
 
-                    </div>
-                    <div class="card-footer bg-transparent mt-auto">
-                        <div class="btn-list justify-content-end">
-                            <a href="#" class="btn btn-primary">
-                                {{ __('Update Password') }}
-                            </a>
+                        <br>
+
+                        {{-- Botón Actualizar Contraseña --}}
+                        <div class="card-footer bg-transparent mt-auto">
+                            <div class="btn-list justify-content-end">
+                                <a href="#" class="btn btn-primary">
+                                    {{ __('Update Password') }}
+                                </a>
+                            </div>
                         </div>
+
                     </div>
+
+                    {{-- Avatar --}}
+                    <div class="tab-pane" id="tabs-avatar" role="tabpanel">
+                        
+                        <h3 class="card-title mt-4">{{ __('Avatar') }}</h3>
+                        <p class="card-subtitle">{{ __('The avatar is a profile picture that represents you and will be used to identify your account.') }}</p>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-auto"><span class="avatar avatar-xl"
+                                    style="background-image: url(./static/avatars/000m.jpg)"></span>
+                            </div>
+
+                            <div class="col-auto">
+                                <a href="#" class="btn">
+                                    {{ __('Change avatar') }}
+                                </a>
+                            </div>
+
+                            <div class="col-auto">
+                                <a href="#" class="btn btn-ghost-danger">
+                                    {{ __('Delete avatar') }}
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        {{-- Botón Actualizar Avatar --}}
+                        <div class="card-footer bg-transparent mt-auto">
+                            <div class="btn-list justify-content-end">
+                                <a href="#" class="btn btn-primary">
+                                    {{ __('Update Avatar') }}
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {{-- Lenguaje --}}
+                    <div class="tab-pane" id="tabs-lenguaje" role="tabpanel">
+                        
+                        <h3 class="card-title mt-4">{{ __('Language') }}</h3>
+                        <p class="card-subtitle">{{ __('Here you can change the language in which the application will be displayed.') }}</p>
+
+                        <div class="row align-items-center">
+
+                            <!-- Lenguaje - b5 dropdown -->
+                            <div class="col-auto">
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ __('Prefer language') }}
+                                    </a>
+                                    
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        
+                                        {{-- Ingles --}}
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('locale/en') }}">
+                                                {{ __('English') }}
+                                                @if (App::getLocale() == 'en')
+                                                    <i class="bi bi-check2"></i>
+                                                @endif
+                                            </a>
+                                        </li>
+    
+                                        {{-- Español --}}
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('locale/es') }}">
+                                                {{ __('Spanish') }}
+                                                @if (App::getLocale() == 'es')
+                                                    <i class="bi bi-check2"></i>
+                                                @endif
+                                            </a>
+                                        </li>
+    
+                                    </ul>
+                                </div>
+                                <br>
+                            </div>
+
+                            {{-- Botón Actualizar Lenguaje --}}
+                            <div class="card-footer bg-transparent mt-auto">
+                                <div class="btn-list justify-content-end">
+                                    <a href="#" class="btn btn-primary">
+                                        {{ __('Update Language') }}
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
+
         </div>
 
     </div>

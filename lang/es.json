@@ -298,6 +298,12 @@
     "Save Changes": "Guardar Cambios",
     "My Password": "Mi contraseña",
     "Change Password": "Cambiar contraseña",
-    "To change your administrator password, you first need to enter your current password to make the change.": "Para cambiar su contraseña de administrador, primero necesita introducir su contraseña actual para realizar el cambio."
+    "To change your administrator password, you first need to enter your current password to make the change.": "Para cambiar su contraseña de administrador, primero necesita introducir su contraseña actual para realizar el cambio.",
+    "Name and Email": "Nombre y Correo Electrónico",
+    "Complete Name": "Nombre Completo",
+    "Update Avatar": "Actualizar Avatar",
+    "Update Language": "Actualizar Lenguaje",
+    "The avatar is a profile picture that represents you and will be used to identify your account.": "El avatar es una imagen que representa a usted y será utilizada para identificar su cuenta.",
+    "Here you can change the language in which the application will be displayed.": "Aquí puede cambiar el lenguaje en el que se mostrará la aplicación."
     
 }
