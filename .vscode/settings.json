@@ -36,9 +36,22 @@
     "workbench.colorTheme": "Monokai",
     "git.enableSmartCommit": true,
     "window.zoomLevel": 1,
+
+    // Editor Multi Cursor
+    "editor.multiCursorModifier": "ctrlCmd",
+    
+    // Editor Font
     "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 15,
     "editor.fontLigatures": true,
+
+    // Editor Font Size
+    "editor.fontSize": 14,
+
+    // Editor Line Height
+    "editor.lineHeight": 1.3,
+
+    // Editor Tab Size
+    "editor.tabSize": 4,
 
     // Peacock
     "peacock.color": "#ff885e",

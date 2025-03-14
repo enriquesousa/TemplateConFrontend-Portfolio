@@ -43,7 +43,7 @@ Route::group(['middleware' => 'guest:admin', 'middleware' => 'localization', 'pr
 * Admin Auth Routes admin.
 * ------------------------
 */
-Route::group(["middleware" => "auth:admin", "prefix" => "admin-tjweb", "as" => "admin."], function () {
+Route::group(['middleware' => 'auth:admin', 'middleware' => 'localization', 'prefix' => 'admin-tjweb', 'as' => 'admin.'], function () {
 
     Route::get('verify-email', EmailVerificationPromptController::class)->name('verification.notice');
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
@@ -60,5 +60,6 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin-tjweb", "as" => "
 
     // Admin Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 });

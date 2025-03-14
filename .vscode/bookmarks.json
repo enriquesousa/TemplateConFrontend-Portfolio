@@ -274,9 +274,19 @@
 			"path": "resources/views/admin/layouts/master.blade.php",
 			"bookmarks": [
 				{
+					"line": 15,
+					"column": 8,
+					"label": "notyf notificaciones"
+				},
+				{
 					"line": 41,
 					"column": 8,
 					"label": "bootstrap icons"
+				},
+				{
+					"line": 112,
+					"column": 8,
+					"label": "notyf notificacion"
 				}
 			]
 		},
@@ -302,6 +312,16 @@
 					"line": 14,
 					"column": 0,
 					"label": "home page"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Controllers/Admin/ProfileController.php",
+			"bookmarks": [
+				{
+					"line": 31,
+					"column": 8,
+					"label": "notificacion flasher"
 				}
 			]
 		}

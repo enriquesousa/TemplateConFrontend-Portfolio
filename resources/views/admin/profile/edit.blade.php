@@ -70,31 +70,43 @@
                         {{-- Editar nombre y correo --}}
                         <h3 class="card-title mt-4">{{ __('Name and Email') }}</h3>
                         <p class="card-subtitle">{{ __('Your email address can be used to reset your password and also to receive messages from this application.') }}</p>
-                        <div class="row g-3">
+                        
+                        <form action="{{ route('admin.profile.update') }}" method="POST">
+                            @csrf
+                            @method('PATCH')
 
-                            {{-- Nombre --}}
-                            <div class="col-md">
-                                <div class="form-label">{{ __('Name') }}</div>
-                                <input type="text" class="form-control" placeholder="{{ __('Complete Name') }}">
+                            <div class="row g-3">
+
+                                {{-- Nombre --}}
+                                <div class="col-md">
+                                    <div class="form-label">{{ __('Name') }}</div>
+                                    {{-- <input type="text" name="name" class="form-control" placeholder="{{ __('Complete Name') }}"> --}}
+                                    <input type="text" name="name" class="form-control" placeholder="{{ __('Complete Name') }}" value="{{ old('name', $user->name) }}">
+                                    @if ($errors->has('name'))
+                                        <span class="text-danger fs-6">{{ $errors->first('name') }}</span>
+                                    @endif
+                                </div>
+    
+                                {{-- Correo Electrónico --}}
+                                <div class="col-md">
+                                    <div class="form-label">{{ __('Email') }}</div>
+                                    {{-- <input type="text" class="form-control" placeholder="test@example.com" value=""> --}}
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="test@example.com" value="{{ old('email', $user->email) }}">
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger fs-6">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+    
+                            </div>
+                            <br>
+                            {{-- Botón Guardar Cambios --}}
+                            <div class="card-footer bg-transparent mt-auto">
+                                <div class="btn-list justify-content-end">
+                                    <button class="btn btn-primary">{{ __('Save Changes') }}</button>
+                                </div>
                             </div>
 
-                            {{-- Correo Electrónico --}}
-                            <div class="col-md">
-                                <div class="form-label">{{ __('Email') }}</div>
-                                <input type="text" class="form-control" placeholder="test@example.com" value="">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        {{-- Botón Guardar Cambios --}}
-                        <div class="card-footer bg-transparent mt-auto">
-                            <div class="btn-list justify-content-end">
-                                <a href="#" class="btn btn-primary">
-                                    {{ __('Save Changes') }}
-                                </a>
-                            </div>
-                        </div>
+                        </form>
                         
                     </div>
 
