@@ -25,9 +25,36 @@
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs" role="tablist">
 
+                    {{-- defaults --}}
+                    @php
+                        $nameHeader = 'active';
+                        $passwordHeader = '';
+                        $avatarHeader = '';
+                        $lenguajeHeader = '';
+                    @endphp
+
+                    @if ($errors->first('estado') == 'name-update')                    
+                        @php
+                            $nameHeader = 'active';
+                            $passwordHeader = '';
+                            $avatarHeader = '';
+                            $lenguajeHeader = '';
+                        @endphp
+                    @endif
+
+                    @if ($errors->first('estado') == 'password-update')                    
+                        @php
+                            $nameHeader = '';
+                            $passwordHeader = 'active';
+                            $avatarHeader = '';
+                            $lenguajeHeader = '';
+                        @endphp
+                    @endif
+
+
                     {{-- Nombre y Correo Electrónico --}}
                     <li class="nav-item" role="presentation">
-                        <a href="#tabs-nombre" class="nav-link active" data-bs-toggle="tab" aria-selected="true" role="tab" style="">
+                        <a href="#tabs-nombre" class="nav-link {{ $nameHeader }}" data-bs-toggle="tab" aria-selected="true" role="tab" style="">
                             <i class="bi bi-person"></i>&nbsp;
                             {{ __('Name and Email') }}
                         </a>
@@ -35,7 +62,7 @@
 
                     {{-- Contraseña --}}
                     <li class="nav-item" role="presentation">
-                        <a href="#tabs-contraseña" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                        <a href="#tabs-contraseña" class="nav-link {{ $passwordHeader }}" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
                             <i class="bi bi-key"></i>&nbsp;
                             {{ __('Password') }}
                         </a>
@@ -43,7 +70,7 @@
 
                     {{-- Avatar --}}
                     <li class="nav-item" role="presentation">
-                        <a href="#tabs-avatar" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                        <a href="#tabs-avatar" class="nav-link {{ $avatarHeader }}" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
                             <i class="bi bi-person-circle"></i>&nbsp;
                             {{ __('Avatar') }}
                         </a>
@@ -51,7 +78,7 @@
 
                     {{-- Lenguaje --}}
                     <li class="nav-item" role="presentation">
-                        <a href="#tabs-lenguaje" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                        <a href="#tabs-lenguaje" class="nav-link {{ $lenguajeHeader }}" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
                             <i class="bi bi-translate"></i>&nbsp;
                             {{ __('Language') }}
                         </a>
@@ -64,8 +91,50 @@
             <div class="card-body">
                 <div class="tab-content">
 
+                    {{-- If errors --}}
+                    {{-- @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            @if ($errors->first('estado') == 'password-update')
+                                <ul>
+                                    <li>{{ __('The password was updated successfully.') }}</li>
+                                </ul>
+                            @endif
+                        </div>
+                    @endif --}}
+
+                    {{-- defaults --}}
+                    @php
+                        $namePane = 'active';
+                        $passwordPane = '';
+                        $avatarPane = '';
+                        $lenguajePane = '';
+                    @endphp
+
+                    @if ($errors->first('estado') == 'name-update')                    
+                        @php
+                            $namePane = 'active';
+                            $passwordPane = '';
+                            $avatarPane = '';
+                            $lenguajePane = '';
+                        @endphp
+                    @endif
+
+                    @if ($errors->first('estado') == 'password-update')                    
+                        @php
+                            $namePane = '';
+                            $passwordPane = 'active';
+                            $avatarPane = '';
+                            $lenguajePane = '';
+                        @endphp
+                    @endif
+
                     {{-- Nombre y Correo Electrónico --}}
-                    <div class="tab-pane active show" id="tabs-nombre" role="tabpanel">
+                    <div class="tab-pane {{ $namePane }}" id="tabs-nombre" role="tabpanel">
 
                         {{-- Editar nombre y correo --}}
                         <h3 class="card-title mt-4">{{ __('Name and Email') }}</h3>
@@ -98,6 +167,7 @@
                                 </div>
     
                             </div>
+
                             <br>
                             {{-- Botón Guardar Cambios --}}
                             <div class="card-footer bg-transparent mt-auto">
@@ -107,71 +177,74 @@
                             </div>
 
                         </form>
-                        
+
                     </div>
 
                     {{-- Contraseña --}}
-                    <div class="tab-pane" id="tabs-contraseña" role="tabpanel">
+                    <div class="tab-pane {{ $passwordPane }}" id="tabs-contraseña" role="tabpanel">
                         
                         <h3 class="card-title mt-4">{{ __('Change Password') }}</h3>
                         <p class="card-subtitle">{{ __('To change your administrator password, you first need to enter your current password to make the change.') }}</p>
 
-                        <div class="row">
+                        <form action="{{ route('admin.profile.password.update') }}" method="POST">
+                            @csrf
+                            @method('PUT')
 
-                            {{-- Contraseña Actual --}}
-                            <div class="row g-3">                        
-                                <div class="col-md">
-                                    <div class="form-label">{{ __('Current Password') }}</div>
-                                    <input type="password" name="current_password" class="form-control"
-                                    autocomplete="current-password">
-                                    @if ($errors->updatePassword->has('current_password'))
-                                        <code>{{ $errors->updatePassword->first('current_password') }}</code>
-                                    @endif
+                            <div class="row">
+
+                                {{-- Contraseña Actual --}}
+                                <div class="row g-3">                        
+                                    <div class="col-md">
+                                        <div class="form-label">{{ __('Current Password') }}</div>
+                                        <input type="password" name="current_password" class="form-control"
+                                        autocomplete="current-password">
+                                        @if ($errors->has('current_password'))
+                                            <span class="text-danger fs-6">{{ $errors->first('current_password') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                {{-- New password and Confirm password --}}
+                                <div class="row g-3">                        
+
+                                    {{-- Nueva Contraseña --}}
+                                    <div class="col-md">
+                                        <div class="form-label">{{ __('New Password') }}</div>
+                                        <input type="password" name="password" class="form-control"
+                                        autocomplete="new-password">
+                                        @if ($errors->has('password'))
+                                            <span class="text-danger fs-6">{{ $errors->first('password') }}</span>
+                                        @endif
+                                    </div>
+
+                                    {{-- Confirmar Contraseña --}}
+                                    <div class="col-md">
+                                        <div class="form-label">{{ __('Confirm Password') }}</div>
+                                        <input type="password" name="password_confirmation" class="form-control"
+                                        autocomplete="new-password">
+                                        @if ($errors->has('password_confirmation'))
+                                            <span class="text-danger fs-6">{{ $errors->first('password_confirmation') }}</span>
+                                        @endif
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            {{-- Botón Actualizar Contraseña --}}
+                            <br>
+                            <div class="card-footer bg-transparent mt-auto">
+                                <div class="btn-list justify-content-end">
+                                    <button class="btn btn-primary">{{ __('Update Password') }}</button>
                                 </div>
                             </div>
 
-                            {{-- New password and Confirm password --}}
-                            <div class="row g-3">                        
-
-                                {{-- Nueva Contraseña --}}
-                                <div class="col-md">
-                                    <div class="form-label">{{ __('New Password') }}</div>
-                                    <input type="password" name="password" class="form-control"
-                                    autocomplete="new-password">
-                                    @if ($errors->updatePassword->has('password'))
-                                        <code>{{ $errors->updatePassword->first('password') }}</code>
-                                    @endif
-                                </div>
-
-                                {{-- Confirmar Contraseña --}}
-                                <div class="col-md">
-                                    <div class="form-label">{{ __('Confirm Password') }}</div>
-                                    <input type="password" name="password_confirmation" class="form-control"
-                                    autocomplete="new-password">
-                                    @if ($errors->updatePassword->has('password_confirmation'))
-                                        <code>{{ $errors->updatePassword->first('password_confirmation') }}</code>
-                                    @endif
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <br>
-
-                        {{-- Botón Actualizar Contraseña --}}
-                        <div class="card-footer bg-transparent mt-auto">
-                            <div class="btn-list justify-content-end">
-                                <a href="#" class="btn btn-primary">
-                                    {{ __('Update Password') }}
-                                </a>
-                            </div>
-                        </div>
+                        </form>
 
                     </div>
 
                     {{-- Avatar --}}
-                    <div class="tab-pane" id="tabs-avatar" role="tabpanel">
+                    <div class="tab-pane {{ $avatarPane }}" id="tabs-avatar" role="tabpanel">
                         
                         <h3 class="card-title mt-4">{{ __('Avatar') }}</h3>
                         <p class="card-subtitle">{{ __('The avatar is a profile picture that represents you and will be used to identify your account.') }}</p>
@@ -210,7 +283,7 @@
                     </div>
 
                     {{-- Lenguaje --}}
-                    <div class="tab-pane" id="tabs-lenguaje" role="tabpanel">
+                    <div class="tab-pane {{ $lenguajePane }}" id="tabs-lenguaje" role="tabpanel">
                         
                         <h3 class="card-title mt-4">{{ __('Language') }}</h3>
                         <p class="card-subtitle">{{ __('Here you can change the language in which the application will be displayed.') }}</p>

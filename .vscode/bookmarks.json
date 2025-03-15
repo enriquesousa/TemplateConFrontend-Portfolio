@@ -319,9 +319,19 @@
 			"path": "app/Http/Controllers/Admin/ProfileController.php",
 			"bookmarks": [
 				{
-					"line": 31,
+					"line": 28,
 					"column": 8,
 					"label": "notificacion flasher"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Requests/Admin/PasswordUpdateRequest.php",
+			"bookmarks": [
+				{
+					"line": 31,
+					"column": 4,
+					"label": "agregar validation status estado a validation request"
 				}
 			]
 		}
