@@ -38,8 +38,8 @@
                         $estado = 'nameUpdate'; // por default
                     @endphp
 
-                    {{-- If errors --}}
-                    {{-- si existe la palabra contraseña en $error entonces --}}
+                    {{-- If errors - Si hay errores en validation request entonces buscamos palabra clave en $errors --}}
+                    {{-- si existe la palabra (nombre,contraseña,avatar o lenguaje) en $error entonces --}}
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
                             @php
@@ -47,6 +47,8 @@
                                     $estado = 'passwordUpdate';
                                 }elseif (Str::contains($error, __('name'))) {
                                     $estado = 'nameUpdate';
+                                }elseif (Str::contains($error, __('avatar'))) {
+                                    $estado = 'avatarUpdate';
                                 }
                             @endphp
                         @endforeach
@@ -67,6 +69,15 @@
                             $nameHeader = '';
                             $passwordHeader = 'active';
                             $avatarHeader = '';
+                            $lenguajeHeader = '';
+                        @endphp
+                    @endif
+
+                    @if(session('status') === 'avatarUpdate' || $estado == 'avatarUpdate')
+                        @php
+                            $nameHeader = '';
+                            $passwordHeader = '';
+                            $avatarHeader = 'active';
                             $lenguajeHeader = '';
                         @endphp
                     @endif
@@ -141,6 +152,15 @@
                         @endphp
                     @endif
 
+                    @if(session('status') === 'avatarUpdate' || $estado == 'avatarUpdate')
+                        @php
+                            $namePane = '';
+                            $passwordPane = '';
+                            $avatarPane = 'active';
+                            $lenguajePane = '';
+                        @endphp
+                    @endif
+
                     {{-- Nombre y Correo Electrónico --}}
                     <div class="tab-pane {{ $namePane }}" id="tabs-nombre" role="tabpanel">
 
@@ -196,6 +216,7 @@
 
                         <form action="{{ route('admin.profile.password.update') }}" method="POST">
                             @csrf
+                            @method('PATCH')
 
                             <div class="row">
 
@@ -254,38 +275,53 @@
                     <div class="tab-pane {{ $avatarPane }}" id="tabs-avatar" role="tabpanel">
                         
                         <h3 class="card-title mt-4">{{ __('Avatar') }}</h3>
-                        <p class="card-subtitle">{{ __('The avatar is a profile picture that represents you and will be used to identify your account.') }}</p>
+                        <p class="card-subtitle">{{ __('The avatar is a profile picture that represents you and will be used to identify your account.') }} - {{ __('PNG or JPG maximum of 400px by 400px and maximum of 1MB.') }}</p>
 
-                        <div class="row align-items-center">
-
-                            <div class="col-auto"><span class="avatar avatar-xl"
-                                    style="background-image: url(./static/avatars/000m.jpg)"></span>
+                        <form action="{{ route('admin.profile.avatar.update') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
+                        
+                            <div class="row align-items-center">
+    
+                                {{-- Image --}}
+                                <div class="col-auto">
+                                    <div>
+                                        {{-- @php
+                                            dd($user->avatar);
+                                        @endphp --}}
+                                        <img id="showImage" src="{{ !empty($user->avatar) ? url($user->avatar) : url('images/avatar.png') }}" alt="avatar" class="avatar avatar-xl">
+                                    </div>
+                                    <div>
+                                        @if ($errors->has('avatar'))
+                                            <span class="text-danger fs-6">{{ $errors->first('avatar') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+    
+                                <div class="col-auto">
+                                    <div>
+                                        <label for="image-upload" class="form-label btn btn-primary">{{ __('Change avatar') }}</label>
+                                        <input type="file" id="image-upload" name="avatar" hidden=""> 
+                                    </div>
+                                </div>
+    
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-ghost-danger eliminar-avatar">
+                                        {{ __('Delete avatar') }}
+                                    </a>
+                                </div>
+    
+                            </div>
+    
+                            <br>
+                            {{-- Botón Actualizar Avatar --}}
+                            <div class="card-footer bg-transparent mt-auto">
+                                <div class="btn-list justify-content-end">
+                                    <button class="btn btn-primary">{{ __('Update Avatar') }}</button>
+                                </div>
                             </div>
 
-                            <div class="col-auto">
-                                <a href="#" class="btn">
-                                    {{ __('Change avatar') }}
-                                </a>
-                            </div>
-
-                            <div class="col-auto">
-                                <a href="#" class="btn btn-ghost-danger">
-                                    {{ __('Delete avatar') }}
-                                </a>
-                            </div>
-
-                        </div>
-
-                        <br>
-
-                        {{-- Botón Actualizar Avatar --}}
-                        <div class="card-footer bg-transparent mt-auto">
-                            <div class="btn-list justify-content-end">
-                                <a href="#" class="btn btn-primary">
-                                    {{ __('Update Avatar') }}
-                                </a>
-                            </div>
-                        </div>
+                        </form>
 
                     </div>
 
@@ -353,3 +389,27 @@
 </div>
 
 @endsection
+
+@push('child-scripts')
+    <script>
+        $(document).ready(function() {
+            
+            // Mi JS para el manejo de la imagen en la forma
+            $('#image-upload').change(function(e) {
+                // alert("funciona");
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+
+            // Eliminar Avatar
+            $(document).on('click', '.eliminar-avatar', function() {
+                $('#showImage').attr('src', "{{ url('images/avatar.png') }}");
+                $('#image-upload').val('');
+            });
+
+        });
+    </script>
+@endpush

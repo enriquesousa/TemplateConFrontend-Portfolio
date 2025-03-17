@@ -311,7 +311,14 @@
     "The current password is required.": "La contraseña actual es requerida.",
     "The password is required.": "La contraseña es requerida.",
     "The password must be at least 8 characters.": "La contraseña debe tener al menos 8 caracteres.",
-    "The password confirmation does not match.": "La confirmación de la contraseña no coincide."
+    "The password confirmation does not match.": "La confirmación de la contraseña no coincide.",
+    "PNG or JPG maximum of 400px by 400px and maximum of 1MB.": "PNG o JPG máximo de 400px por 400px y máximo de 1MB.",
+    "The avatar is required.": "El avatar es requerido.",
+    "The avatar must be an image.": "El avatar debe ser una imagen.",
+    "The avatar must be a file of type: png, jpg.": "El avatar debe ser un archivo de tipo: png, jpg.",
+    "The avatar must not exceed 1MB.": "El avatar no debe exceder 1MB.",
+    "Avatar updated successfully": "Avatar actualizado correctamente"
+
 
     
 }

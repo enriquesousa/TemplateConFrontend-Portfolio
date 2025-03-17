@@ -284,7 +284,12 @@
 					"label": "bootstrap icons"
 				},
 				{
-					"line": 112,
+					"line": 110,
+					"column": 8,
+					"label": "jquery library cdn"
+				},
+				{
+					"line": 113,
 					"column": 8,
 					"label": "notyf notificacion"
 				}
@@ -319,14 +324,19 @@
 			"path": "app/Http/Controllers/Admin/ProfileController.php",
 			"bookmarks": [
 				{
-					"line": 33,
+					"line": 35,
 					"column": 8,
 					"label": "notificacion flasher"
 				},
 				{
-					"line": 45,
+					"line": 47,
 					"column": 12,
 					"label": "current password revisar password en tabla admins usar su guard"
+				},
+				{
+					"line": 98,
+					"column": 12,
+					"label": "image upload con uploadFile"
 				}
 			]
 		},
@@ -337,6 +347,21 @@
 					"line": 85,
 					"column": 4,
 					"label": "agregar validation status estado a validation request"
+				}
+			]
+		},
+		{
+			"path": "resources/views/admin/profile/edit.blade.php",
+			"bookmarks": [
+				{
+					"line": 291,
+					"column": 32,
+					"label": "image show image upload preview"
+				},
+				{
+					"line": 397,
+					"column": 8,
+					"label": "image upload preview con jquery"
 				}
 			]
 		}
