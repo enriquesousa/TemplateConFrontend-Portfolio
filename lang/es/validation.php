@@ -94,6 +94,9 @@ return [
     'not_regex'            => 'El formato del campo :attribute es inválido.',
     'numeric'              => 'El campo :attribute debe ser un número.',
     'password'             => 'La contraseña es incorrecta.',
+
+    'current_password'  => 'La contraseña es incorrecta.',
+
     'present'              => 'El campo :attribute debe estar presente.',
     'regex'                => 'El formato del campo :attribute es inválido.',
     'required'             => 'El campo :attribute es obligatorio.',

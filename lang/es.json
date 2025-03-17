@@ -175,7 +175,7 @@
     "Pagination Navigation": "Navegación por los enlaces de paginación",
     "Partial Content": "Contenido parcial",
     "Password": "Contraseña",
-    "password": "La contraseña es incorrecta.",
+    "password": "contraseña",
     "Payload Too Large": "Solicitud demasiado grande",
     "Payment Required": "Pago requerido",
     "Permanent Redirect": "Redirección permanente",
@@ -307,6 +307,11 @@
     "Here you can change the language in which the application will be displayed.": "Aquí puede cambiar el lenguaje en el que se mostrará la aplicación.",
     "Profile updated successfully": "Perfil actualizado correctamente",
     "Welcome back!": "Bienvenido de nuevo!",
-    "Password updated successfully": "Contraseña actualizada correctamente"
+    "Password updated successfully": "Contraseña actualizada correctamente",
+    "The current password is required.": "La contraseña actual es requerida.",
+    "The password is required.": "La contraseña es requerida.",
+    "The password must be at least 8 characters.": "La contraseña debe tener al menos 8 caracteres.",
+    "The password confirmation does not match.": "La confirmación de la contraseña no coincide."
+
     
 }

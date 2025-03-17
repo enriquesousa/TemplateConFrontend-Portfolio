@@ -30,6 +30,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         flash()->success('Welcome back!');
+        // notyf()->success('Bienvenido!');
         return redirect()->intended(route('admin.dashboard', absolute: false));
     }
 

@@ -319,9 +319,14 @@
 			"path": "app/Http/Controllers/Admin/ProfileController.php",
 			"bookmarks": [
 				{
-					"line": 28,
+					"line": 33,
 					"column": 8,
 					"label": "notificacion flasher"
+				},
+				{
+					"line": 45,
+					"column": 12,
+					"label": "current password revisar password en tabla admins usar su guard"
 				}
 			]
 		},
@@ -329,7 +334,7 @@
 			"path": "app/Http/Requests/Admin/PasswordUpdateRequest.php",
 			"bookmarks": [
 				{
-					"line": 31,
+					"line": 85,
 					"column": 4,
 					"label": "agregar validation status estado a validation request"
 				}

@@ -61,6 +61,6 @@ Route::group(['middleware' => 'auth:admin', 'middleware' => 'localization', 'pre
     // Admin Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-    Route::put('/profile/password/update', [ProfileController::class, 'passwordUpdate'])->name('profile.password.update');
+    Route::post('/profile/password/update', [ProfileController::class, 'passwordUpdate'])->name('profile.password.update');
 
 });

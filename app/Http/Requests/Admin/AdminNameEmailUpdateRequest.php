@@ -21,18 +21,12 @@ class AdminNameEmailUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
         ];
     }
-
-    public function withValidator($validator)
-    {
-        $validator->after(function ($validator) {
-            $validator->errors()->add('estado', 'name-update');
-        });
-        
-    }
+    
 
 }

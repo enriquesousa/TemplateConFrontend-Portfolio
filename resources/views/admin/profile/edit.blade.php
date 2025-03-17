@@ -17,6 +17,7 @@
 <!-- Page body -->
 <div class="page-body">
     <div class="container-xl">
+        
 
         {{-- Card con Tabs --}}
         <div class="card">
@@ -33,7 +34,26 @@
                         $lenguajeHeader = '';
                     @endphp
 
-                    @if ($errors->first('estado') == 'name-update')                    
+                    @php
+                        $estado = 'nameUpdate'; // por default
+                    @endphp
+
+                    {{-- If errors --}}
+                    {{-- si existe la palabra contraseña en $error entonces --}}
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            @php
+                                if (Str::contains($error, __('password'))){
+                                    $estado = 'passwordUpdate';
+                                }elseif (Str::contains($error, __('name'))) {
+                                    $estado = 'nameUpdate';
+                                }
+                            @endphp
+                        @endforeach
+                    @endif
+                    
+
+                    @if(session('status') === 'nameUpdate' || $estado == 'nameUpdate')
                         @php
                             $nameHeader = 'active';
                             $passwordHeader = '';
@@ -42,7 +62,7 @@
                         @endphp
                     @endif
 
-                    @if ($errors->first('estado') == 'password-update')                    
+                    @if(session('status') === 'passwordUpdate' || $estado == 'passwordUpdate')
                         @php
                             $nameHeader = '';
                             $passwordHeader = 'active';
@@ -50,6 +70,10 @@
                             $lenguajeHeader = '';
                         @endphp
                     @endif
+
+                    {{-- @php
+                        dd($nameHeader, $passwordHeader, $avatarHeader, $lenguajeHeader);
+                    @endphp --}}
 
 
                     {{-- Nombre y Correo Electrónico --}}
@@ -91,22 +115,6 @@
             <div class="card-body">
                 <div class="tab-content">
 
-                    {{-- If errors --}}
-                    {{-- @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                            @if ($errors->first('estado') == 'password-update')
-                                <ul>
-                                    <li>{{ __('The password was updated successfully.') }}</li>
-                                </ul>
-                            @endif
-                        </div>
-                    @endif --}}
-
                     {{-- defaults --}}
                     @php
                         $namePane = 'active';
@@ -115,7 +123,7 @@
                         $lenguajePane = '';
                     @endphp
 
-                    @if ($errors->first('estado') == 'name-update')                    
+                    @if(session('status') === 'nameUpdate' || $estado == 'nameUpdate')
                         @php
                             $namePane = 'active';
                             $passwordPane = '';
@@ -124,7 +132,7 @@
                         @endphp
                     @endif
 
-                    @if ($errors->first('estado') == 'password-update')                    
+                    @if(session('status') === 'passwordUpdate' || $estado == 'passwordUpdate')
                         @php
                             $namePane = '';
                             $passwordPane = 'active';
@@ -188,7 +196,6 @@
 
                         <form action="{{ route('admin.profile.password.update') }}" method="POST">
                             @csrf
-                            @method('PUT')
 
                             <div class="row">
 
