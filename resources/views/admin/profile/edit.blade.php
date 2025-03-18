@@ -329,14 +329,15 @@
                     <div class="tab-pane {{ $lenguajePane }}" id="tabs-lenguaje" role="tabpanel">
                         
                         <h3 class="card-title mt-4">{{ __('Language') }}</h3>
-                        <p class="card-subtitle">{{ __('Here you can change the language in which the application will be displayed.') }}</p>
+                        <p class="card-subtitle">{{ __('Here you can change the language in which the application will be displayed.') }}  {{ __('Currently your language is: ') }} <span class="fw-bold text-yellow">{{ App::getLocale()== 'en' ? __('English') : __('Spanish')}}</span></p>
+                        
 
                         <div class="row align-items-center">
 
                             <!-- Lenguaje - b5 dropdown -->
                             <div class="col-auto">
                                 <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ __('Prefer language') }}
                                     </a>
                                     
@@ -365,15 +366,6 @@
                                     </ul>
                                 </div>
                                 <br>
-                            </div>
-
-                            {{-- Botón Actualizar Lenguaje --}}
-                            <div class="card-footer bg-transparent mt-auto">
-                                <div class="btn-list justify-content-end">
-                                    <a href="#" class="btn btn-primary">
-                                        {{ __('Update Language') }}
-                                    </a>
-                                </div>
                             </div>
 
                         </div>

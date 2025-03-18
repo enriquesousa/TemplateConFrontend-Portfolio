@@ -26,7 +26,7 @@
 				{
 					"line": 20,
 					"column": 8,
-					"label": "dashboard check si admin es login"
+					"label": "dashboard check si admin es login como saber si admin esta login login inicial"
 				},
 				{
 					"line": 34,
@@ -79,9 +79,19 @@
 			"path": "app/Http/Controllers/Admin/Auth/AuthenticatedSessionController.php",
 			"bookmarks": [
 				{
-					"line": 19,
+					"line": 20,
 					"column": 8,
 					"label": "admin login call view"
+				},
+				{
+					"line": 30,
+					"column": 8,
+					"label": "admin login inicial"
+				},
+				{
+					"line": 37,
+					"column": 8,
+					"label": "guardar variable de sesion con session facade session"
 				}
 			]
 		},
@@ -259,14 +269,14 @@
 			"path": "app/Http/Controllers/LocalizationController.php",
 			"bookmarks": [
 				{
-					"line": 8,
+					"line": 10,
 					"column": 4,
 					"label": "traduccion controller localization controller setLanguage"
 				},
 				{
-					"line": 27,
-					"column": 8,
-					"label": "traduccion grabar session variable locale"
+					"line": 30,
+					"column": 87,
+					"label": "Si admin esta login, grabamos el locale en campo language en la tabla admins"
 				}
 			]
 		},
@@ -359,7 +369,7 @@
 					"label": "image show image upload preview"
 				},
 				{
-					"line": 397,
+					"line": 389,
 					"column": 8,
 					"label": "image upload preview con jquery"
 				}

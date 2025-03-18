@@ -8,6 +8,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session as FacadesSession;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -28,6 +29,14 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        // Set local language, read from database field language
+        $locale = Auth::guard('admin')->user()->language;
+        // dd($locale);
+        app()->setLocale($locale);
+        // put session variable
+        FacadesSession::put('locale', $locale);
+        
 
         flash()->success('Welcome back!');
         // notyf()->success('Bienvenido!');

@@ -317,7 +317,10 @@
     "The avatar must be an image.": "El avatar debe ser una imagen.",
     "The avatar must be a file of type: png, jpg.": "El avatar debe ser un archivo de tipo: png, jpg.",
     "The avatar must not exceed 1MB.": "El avatar no debe exceder 1MB.",
-    "Avatar updated successfully": "Avatar actualizado correctamente"
+    "Avatar updated successfully": "Avatar actualizado correctamente",
+    "Language": "Lenguaje",
+    "Language updated successfully": "Lenguaje actualizado correctamente",
+    "Currently your language is: ": "Actualmente su lenguaje es: "
 
 
     
