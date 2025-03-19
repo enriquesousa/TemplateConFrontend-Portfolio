@@ -327,7 +327,11 @@
     "Login Time": "Tiempo de Ingreso",
     "Logout Time": "Tiempo de Salida",
     "Time in Session": "Tiempo en Sesión",
-    "Goodbye!": "Hasta luego!"
+    "Goodbye!": "Hasta luego!",
+    "Register your activity on this session": "Registrar tu actividad en esta sesión",
+    "Optional": "Opcional",
+    "Describe your activity in this session": "Describe tu actividad en esta sesión",
+    "Description": "Descripción"
 
 
     

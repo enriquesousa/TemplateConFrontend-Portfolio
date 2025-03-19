@@ -99,7 +99,7 @@
 					"label": "Grabar login in time admin"
 				},
 				{
-					"line": 52,
+					"line": 58,
 					"column": 29,
 					"label": "Grabar logout time admin"
 				}
@@ -142,6 +142,11 @@
 					"line": 0,
 					"column": 20,
 					"label": "admin login view"
+				},
+				{
+					"line": 39,
+					"column": 20,
+					"label": "mi logo en login"
 				},
 				{
 					"line": 215,
@@ -344,17 +349,17 @@
 			"path": "app/Http/Controllers/Admin/ProfileController.php",
 			"bookmarks": [
 				{
-					"line": 36,
+					"line": 37,
 					"column": 8,
 					"label": "notificacion flasher"
 				},
 				{
-					"line": 48,
+					"line": 49,
 					"column": 12,
 					"label": "current password revisar password en tabla admins usar su guard"
 				},
 				{
-					"line": 99,
+					"line": 100,
 					"column": 12,
 					"label": "image upload con uploadFile"
 				}

@@ -51,7 +51,7 @@ if (!function_exists('grabarLoginTime')) {
 
 // grabarLogout Time
 if (!function_exists('grabarLogoutTime')) {
-    function grabarLogoutTime()
+    function grabarLogoutTime($description = null)
     {
         $user = auth('admin')->user();
         // dd($user->id);
@@ -59,8 +59,10 @@ if (!function_exists('grabarLogoutTime')) {
         // Encontrar la ultima sesión del usuario en tabla log_times
         $logTime = AdminLogTime::where('user_id', $user->id)->orderBy('id', 'desc')->first();
         // dd($logTime);
+        // dd($description);
 
         $logTime->logout_time = now();
+        $logTime->description = $description;
         $logTime->save();
 
         return true;

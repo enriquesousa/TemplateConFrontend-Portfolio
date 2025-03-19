@@ -121,8 +121,28 @@
         <!-- Tabler Core -->
         <!-- ******* -->
         <script src="{{ asset('admin/assets/dist/js/tabler.min.js?1692870487') }}" defer></script>
+
+        <!-- Para Tabler Data Table datatable -->
+        <script src="{{ asset('admin/assets/dist/libs/list.js/dist/list.min.js?1692870487') }}" defer></script>
+
+        <!-- Para Tabler Demo (nose si se necesita) -->
         <script src="{{ asset('admin/assets/dist/js/demo.min.js?1692870487') }}" defer></script>
        
+        <!-- Para Tabler Data Table datatable -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const list = new List('table-default', {
+                    sortClass: 'table-sort',
+                    listClass: 'table-tbody',
+                    valueNames: [ 'sort-name', 'sort-type', 'sort-city', 'sort-score',
+                        { attr: 'data-date', name: 'sort-date' },
+                        { attr: 'data-progress', name: 'sort-progress' },
+                        'sort-quantity'
+                    ]
+                });
+            })
+        </script>
+
         {{-- Para el código JS de las vistas, se puedan ejecutar cuando los llamamos con @push('child-scripts') --}}
         @stack('child-scripts')
 

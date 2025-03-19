@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\PasswordUpdateRequest;
 use App\Models\Admin;
 use App\Models\AdminLogTime;
 use App\Traits\FileUpload;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -119,6 +120,11 @@ class ProfileController extends Controller
     public function actividades(Request $request){
         $adminActividades = AdminLogTime::all()->sortByDesc('id');
         return view('admin.actividades.index', compact('adminActividades'));
+    }
+
+    public function logoutPage(): View
+    {
+        return view('admin.logout.index');
     }
 
 

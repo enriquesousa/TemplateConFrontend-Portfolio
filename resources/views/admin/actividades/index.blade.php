@@ -19,22 +19,28 @@
     <div class="container-xl">
 
         {{-- Table --}}
-        <div class="table-responsive">
-            <table class="table table-vcenter card-table">
+        {{-- <div class="table-responsive"> --}}
+        <div id="table-default" class="table-responsive">
+
+            {{-- <table class="table table-vcenter card-table"> --}}
+            {{-- <table id="table-default" class="table-responsive"> --}}
+            <table class="table">
+                
 
                 <thead>
                     <tr>
                         <th>{{ __('ID') }}</th>
-                        <th>{{ __('Admin') }}</th>
-                        <th>{{ __('Login Time') }}</th>
-                        <th>{{ __('Logout Time') }}</th>
+                        <th>{{ __('Name') }}</th>
+                        <th><button class="table-sort" data-sort="sort-date">{{ __('Login Time') }}</button></th>
+                        <th><button class="table-sort" data-sort="sort-date">{{ __('Logout Time') }}</button></th>
+                        <th>{{ __('Description') }}</th>
                         <th>{{ __('Time in Session') }}</th>
                         <th>{{ __('Actions') }}</th>
                         <th class="w-1"></th>
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody class="table-tbody">
                     @forelse ($adminActividades as $item)
                         <tr>
 
@@ -49,17 +55,22 @@
                             </td>
 
                             {{-- Login Time --}}
-                            <td>
+                            <td class="sort-date" data-date="{{ $item->login_time }}">
                                 {{ formatFecha5($item->login_time) }}
                             </td>
 
                             {{-- Logout Time --}}
-                            <td>
+                            <td class="sort-date" data-date="{{ $item->logout_time }}">
                                 @if($item->logout_time == null)
                                     -
                                 @else
                                     {{ formatFecha5($item->logout_time) }}
                                 @endif
+                            </td>
+
+                            {{-- Description --}}
+                            <td>
+                                {{ $item->description }}
                             </td>
 
                             {{-- Time in Session --}}

@@ -164,15 +164,15 @@
 
                     <div class="dropdown-divider"></div>
 
-                    <a href="./settings.html" class="dropdown-item">Settings</a>
+                    <a href="{{ route('admin.logoutPage.index') }}" class="dropdown-item"><i class="bi bi-escape"></i>&nbsp;{{ __('Log Out') }}</a>
 
                     <!-- Logout -->
-                    <a href="#" class="dropdown-item" onclick="event.preventDefault(); getElementById('logout-form').submit();">
+                    {{-- <a href="#" class="dropdown-item" onclick="event.preventDefault(); getElementById('logout-form').submit();">
                         {{ __('Log Out') }}
                     </a>
                     <form method="POST" id="logout-form" action="{{ route('admin.logout') }}">
                         @csrf
-                    </form>
+                    </form> --}}
 
                 </div>
             </div>

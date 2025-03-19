@@ -64,5 +64,7 @@ Route::group(['middleware' => 'auth:admin', 'middleware' => 'localization', 'pre
     Route::patch('/profile/password/update', [ProfileController::class, 'passwordUpdate'])->name('profile.password.update');
     Route::patch('/profile/avatar/update', [ProfileController::class, 'avatarUpdate'])->name('profile.avatar.update');
     Route::get('/actividades', [ProfileController::class, 'actividades'])->name('actividades.index');
+    Route::get('/logout/page', [ProfileController::class, 'logoutPage'])->name('logoutPage.index');
+
 
 });

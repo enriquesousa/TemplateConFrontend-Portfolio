@@ -50,8 +50,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        // dd($request->all());
+
+        // Validate
+        $request->validate([
+            'description' => ['nullable'],
+        ]);
         // Grabar logout time
-        grabarLogoutTime();
+        grabarLogoutTime($request->description);
 
         Auth::guard('admin')->logout();
 
