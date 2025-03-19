@@ -1,3 +1,5 @@
+
+
 // import $ from 'jquery';
 // // Para hacerlo disponible en todo el DOM 
 // window.$ = window.jQuery = $;

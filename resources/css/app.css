@@ -1,3 +1,9 @@
+/* Fonts */
+/* @import url('https://fonts.bunny.net/css?family=Nunito'); */
+ 
+/* Mejor los tomamos del cdn de datatables bootstrap 5 en: https://cdn.datatables.net */
+/* @import url('https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css'); */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

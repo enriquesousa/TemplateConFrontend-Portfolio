@@ -149,11 +149,15 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 
-                    <a href="#" class="dropdown-item">Status</a>
 
                     <!-- Profile -->
                     <a href="{{ route('admin.profile.edit') }}" class="dropdown-item">
-                        {{ __('Profile') }}
+                        <i class="bi bi-person"></i>&nbsp;{{ __('Profile') }}
+                    </a>
+
+                    <!-- Admin Activity -->
+                    <a href="{{ route('admin.actividades.index') }}" class="dropdown-item">
+                        <i class="bi bi-lightning"></i>&nbsp;{{ __('Activity') }}
                     </a>
 
                     <a href="#" class="dropdown-item">Feedback</a>

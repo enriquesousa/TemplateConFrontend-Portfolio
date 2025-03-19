@@ -320,7 +320,14 @@
     "Avatar updated successfully": "Avatar actualizado correctamente",
     "Language": "Lenguaje",
     "Language updated successfully": "Lenguaje actualizado correctamente",
-    "Currently your language is: ": "Actualmente su lenguaje es: "
+    "Currently your language is: ": "Actualmente su lenguaje es: ",
+    "Log Activities": "Actividades de Registro",
+    "Activity": "Actividad",
+    "No data available in table": "No hay datos disponibles en la tabla",
+    "Login Time": "Tiempo de Ingreso",
+    "Logout Time": "Tiempo de Salida",
+    "Time in Session": "Tiempo en Sesión",
+    "Goodbye!": "Hasta luego!"
 
 
     

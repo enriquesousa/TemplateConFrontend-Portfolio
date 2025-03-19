@@ -10,10 +10,12 @@
         {{-- Nuestro Propio CSRF Token --}}
         <meta name="csrf_token" content="{{ csrf_token() }}" />
 
-        <title>{{ __('Admin Panel') }}</title>
+        <title>{{ __('Admin Panel') }} | TJWeb</title>
 
         {{-- Plugin Notyf CSS para JavaScript lo usamos en Ajax --}}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+        
 
         <!-- CSS files -->
         <link href="{{ asset('admin/assets/dist/css/tabler.min.css?1692870487') }}" rel="stylesheet" />
@@ -25,6 +27,7 @@
         {{-- <link href="{{ asset('admin/assets/dist/css/tabler-payments.min.css?1692870487') }}" rel="stylesheet" />
         <link href="{{ asset('admin/assets/dist/css/tabler-vendors.min.css?1692870487') }}" rel="stylesheet" /> --}}
         <link href="{{ asset('admin/assets/dist/css/demo.min.css?1692870487') }}" rel="stylesheet" />
+        
 
         <style>
             @import url('https://rsms.me/inter/inter.css');
@@ -41,8 +44,8 @@
         <!-- Bootstrap Icons fonts -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-        {{-- Custom css y js--}}
-        @vite(['resources/css/admin.css', 'resources/js/admin/admin.js'])
+        <!-- Vite Custom CSS and JS se usa para datatables y js y css en general -->
+        {{-- @vite('resources/js/app.js') --}}
 
     </head>
 

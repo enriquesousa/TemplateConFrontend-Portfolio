@@ -92,6 +92,16 @@
 					"line": 37,
 					"column": 8,
 					"label": "guardar variable de sesion con session facade session"
+				},
+				{
+					"line": 39,
+					"column": 31,
+					"label": "Grabar login in time admin"
+				},
+				{
+					"line": 52,
+					"column": 29,
+					"label": "Grabar logout time admin"
 				}
 			]
 		},
@@ -289,17 +299,17 @@
 					"label": "notyf notificaciones"
 				},
 				{
-					"line": 41,
+					"line": 44,
 					"column": 8,
 					"label": "bootstrap icons"
 				},
 				{
-					"line": 110,
+					"line": 113,
 					"column": 8,
 					"label": "jquery library cdn"
 				},
 				{
-					"line": 113,
+					"line": 116,
 					"column": 8,
 					"label": "notyf notificacion"
 				}
@@ -334,17 +344,17 @@
 			"path": "app/Http/Controllers/Admin/ProfileController.php",
 			"bookmarks": [
 				{
-					"line": 35,
+					"line": 36,
 					"column": 8,
 					"label": "notificacion flasher"
 				},
 				{
-					"line": 47,
+					"line": 48,
 					"column": 12,
 					"label": "current password revisar password en tabla admins usar su guard"
 				},
 				{
-					"line": 98,
+					"line": 99,
 					"column": 12,
 					"label": "image upload con uploadFile"
 				}

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminNameEmailUpdateRequest;
 use App\Http\Requests\Admin\PasswordUpdateRequest;
 use App\Models\Admin;
+use App\Models\AdminLogTime;
 use App\Traits\FileUpload;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -113,6 +114,11 @@ class ProfileController extends Controller
 
         // Usar with status para avisar a la vista que venimos de actualizar el avatar
         return redirect()->route('admin.profile.edit')->with('status', 'avatarUpdate');
+    }
+
+    public function actividades(Request $request){
+        $adminActividades = AdminLogTime::all()->sortByDesc('id');
+        return view('admin.actividades.index', compact('adminActividades'));
     }
 
 

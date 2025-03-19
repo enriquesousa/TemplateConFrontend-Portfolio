@@ -65,7 +65,10 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    // 'timezone' => 'UTC',
+    // 'timezone' => 'America/Tijuana',
+    'timezone' => env('APP_TIMEZONE', 'America/Tijuana'),
+
 
     /*
     |--------------------------------------------------------------------------

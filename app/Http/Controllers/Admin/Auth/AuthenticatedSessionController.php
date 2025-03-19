@@ -36,7 +36,9 @@ class AuthenticatedSessionController extends Controller
         app()->setLocale($locale);
         // put session variable
         FacadesSession::put('locale', $locale);
-        
+
+        // Grabar login in time
+        grabarLoginTime();
 
         flash()->success('Welcome back!');
         // notyf()->success('Bienvenido!');
@@ -48,12 +50,16 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        // Grabar logout time
+        grabarLogoutTime();
+
         Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
+        flash()->success('Goodbye!');
         return redirect('/');
     }
 }
